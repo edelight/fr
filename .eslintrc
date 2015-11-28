@@ -1,0 +1,46 @@
+{
+    "rules": {
+        "indent": [
+            0,
+            "tab"
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "comma-spacing": [
+            2,
+            { "before": false, "after": true }
+        ],
+        "comma-style": [
+            2,
+            "first"
+        ],
+        "brace-style": [
+            2,
+            "1tbs",
+            { "allowSingleLine": true }
+        ],
+        "key-spacing": [
+            1, {"beforeColon": false, "afterColon": true}
+        ],
+        "space-infix-ops": [
+            2,
+            {"int32Hint": false}
+        ],
+        "prefer-const" : 1
+    },
+    "env": {
+        "node": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended"
+}

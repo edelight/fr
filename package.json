@@ -1,0 +1,28 @@
+{
+  "name": "fr",
+  "version": "1.0.0",
+  "description": "tiny string formatting library",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m90/fr.git"
+  },
+  "keywords": [
+    "string",
+    "format"
+  ],
+  "author": "Frederik Ring <frederik.ring@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m90/fr/issues"
+  },
+  "homepage": "https://github.com/m90/fr#readme",
+  "devDependencies": {
+    "eslint": "^1.10.2",
+    "tape": "^4.2.2"
+  }
+}
