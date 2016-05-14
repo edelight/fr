@@ -45,6 +45,15 @@ fr('{1:data:greeting}{2}{0}!', 'World', { data: { greeting: 'Hello' }} , ' ');
 fr('{1:data:greeting} {0:thing}!', { thing: 'World' }, { data: { greeting: 'Hello' }});
 ```
 
+#### Precompiling:
+
+```js
+var fn1 = fr('Hello {}!');
+var fn2 = fr('Hello {}{1}')
+fn1('World');
+fn2('World', '!');
+```
+
 
 ### License
 MIT © [Frederik Ring](http://www.frederikring.com)

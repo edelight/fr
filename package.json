@@ -1,7 +1,7 @@
 {
   "name": "fr",
   "version": "1.0.0",
-  "description": "tiny string formatting library",
+  "description": "tiniest string formatting library",
   "main": "index.js",
   "scripts": {
     "pretest": "eslint .",

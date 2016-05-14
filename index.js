@@ -1,5 +1,4 @@
-module.exports = function fr(string/*, args...*/){
-	var data = [].slice.call(arguments, 1);
+function render(string, data){
 	return string.replace(/\{(\d*(\:[^}\s]+)*?)\}/g, function(s, token){
 		if (token.indexOf(':') < 0){
 			return data[parseInt(token || 0, 10)];
@@ -12,4 +11,14 @@ module.exports = function fr(string/*, args...*/){
 		}
 		return replacement_value;
 	});
+}
+
+module.exports = function fr(string/*, args...*/){
+	var data = [].slice.call(arguments, 1);
+	return data.length
+		? render(string, data)
+		: function(/*args...*/){
+			var data = [].slice.call(arguments);
+			return render(string, data);
+		};
 };

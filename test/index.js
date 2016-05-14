@@ -33,3 +33,9 @@ test('object access', function(t){
 	t.equal(fr('{1:data:greeting} {0:thing}!', { thing: 'World' }, { data: { greeting: 'Hello' }}), 'Hello World!');
 	t.end();
 });
+
+test('precompiling', function(t){
+	t.equal(fr('Hello {}!')('World'), 'Hello World!');
+	t.equal(fr('Hello {}{1}')('World', '!'), 'Hello World!');
+	t.end();
+});
