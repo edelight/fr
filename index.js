@@ -3,7 +3,7 @@ function render(string, data){
 		if (/^\d+$/.test(token)){
 			return data[parseInt(token || 0, 10)];
 		}
-		token = /^\d*:/.test(token) ? token : ':' + token;
+		token = /^\d*:/.test(token) ? token : '0:' + token;
 		var access_key;
 		var access_chain = token.split(':');
 		var replacement_value = data[access_chain.splice(0, 1)[0] || 0];
