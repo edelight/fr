@@ -27,6 +27,7 @@ test('object access', function(t){
 	t.equal(fr('{0:greeting} World!', { greeting: 'Hello' }), 'Hello World!');
 	t.equal(fr('{:greeting} World!', { greeting: 'Hello' }), 'Hello World!');
 	t.equal(fr('{greeting} {thing}!', { greeting: 'Hello', thing: 'World' }), 'Hello World!');
+	t.equal(fr('Hell{letter} W{letter}rld!', { letter: 'o' }), 'Hello World!');
 	t.equal(fr('{0:data:greeting} World!', { data: { greeting: 'Hello' }}), 'Hello World!');
 	t.equal(fr('{data:greeting} World!', { data: { greeting: 'Hello' }}), 'Hello World!');
 	t.equal(fr('{1:data:greeting} {0}!', 'World', { data: { greeting: 'Hello' }}), 'Hello World!');
