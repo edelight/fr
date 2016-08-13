@@ -1,8 +1,9 @@
 function render(string, data){
-	return string.replace(/\{(\d*(\:[^}\s]+)*?)\}/g, function(s, token){
-		if (token.indexOf(':') < 0){
+	return string.replace(/\{(\d*(\:?[^}\s]+)*?)\}/g, function(s, token){
+		if (/^\d+$/.test(token)){
 			return data[parseInt(token || 0, 10)];
 		}
+		token = /^\d*:/.test(token) ? token : ':' + token;
 		var access_key;
 		var access_chain = token.split(':');
 		var replacement_value = data[access_chain.splice(0, 1)[0] || 0];

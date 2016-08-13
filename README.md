@@ -34,13 +34,13 @@ fr('Hello {}!', 'World');
 fr('Hello {}{1}', 'World', '!');
 ```
 
-#### Access of object properties:
+#### String tokens and access of nested object properties:
 
 ```js
+fr('{greeting} World!', { greeting: 'Hello' });
 fr('{0:greeting} World!', { greeting: 'Hello' });
-fr('{:greeting} World!', { greeting: 'Hello' });
 fr('{0:data:greeting} World!', { data: { greeting: 'Hello' }});
-fr('{:data:greeting} World!', { data: { greeting: 'Hello' }});
+fr('{data:greeting} World!', { data: { greeting: 'Hello' }});
 fr('{1:data:greeting}{2}{0}!', 'World', { data: { greeting: 'Hello' }} , ' ');
 fr('{1:data:greeting} {0:thing}!', { thing: 'World' }, { data: { greeting: 'Hello' }});
 ```
@@ -50,8 +50,10 @@ fr('{1:data:greeting} {0:thing}!', { thing: 'World' }, { data: { greeting: 'Hell
 ```js
 var fn1 = fr('Hello {}!');
 var fn2 = fr('Hello {}{1}')
+var fn3 = fr('Hello {thing}{punctuation}');
 fn1('World');
 fn2('World', '!');
+fn3({ thing: 'World', punctuation: '!' });
 ```
 
 

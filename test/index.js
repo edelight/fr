@@ -26,10 +26,11 @@ test('braces in text', function(t){
 test('object access', function(t){
 	t.equal(fr('{0:greeting} World!', { greeting: 'Hello' }), 'Hello World!');
 	t.equal(fr('{:greeting} World!', { greeting: 'Hello' }), 'Hello World!');
+	t.equal(fr('{greeting} {thing}!', { greeting: 'Hello', thing: 'World' }), 'Hello World!');
 	t.equal(fr('{0:data:greeting} World!', { data: { greeting: 'Hello' }}), 'Hello World!');
-	t.equal(fr('{:data:greeting} World!', { data: { greeting: 'Hello' }}), 'Hello World!');
+	t.equal(fr('{data:greeting} World!', { data: { greeting: 'Hello' }}), 'Hello World!');
 	t.equal(fr('{1:data:greeting} {0}!', 'World', { data: { greeting: 'Hello' }}), 'Hello World!');
-	t.equal(fr('{1:data:greeting}{2}{0}!', 'World', { data: { greeting: 'Hello' }} , ' '), 'Hello World!');
+	t.equal(fr('{1:data:greeting}{2}{0}!', 'World', { data: { greeting: 'Hello' }}, ' '), 'Hello World!');
 	t.equal(fr('{1:data:greeting} {0:thing}!', { thing: 'World' }, { data: { greeting: 'Hello' }}), 'Hello World!');
 	t.end();
 });
@@ -37,5 +38,6 @@ test('object access', function(t){
 test('precompiling', function(t){
 	t.equal(fr('Hello {}!')('World'), 'Hello World!');
 	t.equal(fr('Hello {}{1}')('World', '!'), 'Hello World!');
+	t.equal(fr('Hello {thing}{punctuation}')({ thing: 'World', punctuation: '!' }), 'Hello World!');
 	t.end();
 });
