@@ -45,6 +45,13 @@ fr('{1:data:greeting}{2}{0}!', 'World', { data: { greeting: 'Hello' }} , ' ');
 fr('{1:data:greeting} {0:thing}!', { thing: 'World' }, { data: { greeting: 'Hello' }});
 ```
 
+### Unknown tokens will not be replaced:
+
+```js
+var intermediate =  fr('{greeting} {thing}!', {greeting: 'Hello'});
+fr(intermediate, {thing: 'World'});
+```
+
 #### Precompiling:
 
 ```js

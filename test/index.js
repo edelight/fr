@@ -36,9 +36,21 @@ test('object access', function(t){
 	t.end();
 });
 
+test('undefined tokens', function(t){
+	var intermediate1 = fr('{greeting} {thing}!', {greeting: 'Hello'});
+	t.equal(fr(intermediate1, {thing: 'World'}), 'Hello World!');
+	var intermediate2 = fr('{0} {1}!', 'Hello', '{0}');
+	t.equal(fr(intermediate2, 'World'), 'Hello World!');
+	var intermediate3 = fr('{0} {1}!', 'Hello');
+	t.equal(fr(intermediate3, null, 'World'), 'Hello World!');
+	t.end();
+});
+
 test('precompiling', function(t){
 	t.equal(fr('Hello {}!')('World'), 'Hello World!');
 	t.equal(fr('Hello {}{1}')('World', '!'), 'Hello World!');
 	t.equal(fr('Hello {thing}{punctuation}')({ thing: 'World', punctuation: '!' }), 'Hello World!');
+	var intermediate = fr('{greeting} {thing}!')({greeting: 'Hello'});
+	t.equal(fr(intermediate, {thing: 'World'}), 'Hello World!');
 	t.end();
 });
