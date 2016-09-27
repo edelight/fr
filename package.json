@@ -2,10 +2,13 @@
   "name": "fr",
   "version": "1.2.1",
   "description": "tiniest string formatting library",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "pretest": "eslint .",
-    "test": "node test/index.js"
+    "build": "tsc -d ./index.ts --outDir ./lib",
+    "test": "npm run clean && npm run build && node test/index.js",
+    "clean": "rimraf lib",
+    "prepublish": "npm test && npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,8 @@
   "homepage": "https://github.com/m90/fr#readme",
   "devDependencies": {
     "eslint": "^1.10.2",
-    "tape": "^4.2.2"
+    "rimraf": "^2.5.4",
+    "tape": "^4.2.2",
+    "typescript": "^2.0.3"
   }
 }

@@ -1,5 +1,5 @@
 var test = require('tape');
-var fr = require('./../index');
+var fr = require('./../lib/index');
 
 test('basic index-based tokens', function(t){
 	t.equal(fr('Hello {0}!', 'World'), 'Hello World!');
