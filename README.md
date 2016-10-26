@@ -1,7 +1,7 @@
 # fr
 > tiniest string formatting library
 
-[![Build Status](https://travis-ci.org/m90/fr.svg?branch=master)](https://travis-ci.org/m90/fr)
+[![Build Status](https://travis-ci.org/edelight/fr.svg?branch=master)](https://travis-ci.org/edelight/fr)
 
 ### Installation:
 
